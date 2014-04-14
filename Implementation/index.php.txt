@@ -1,0 +1,21 @@
+<?php
+$menu = array(
+  'home'  => array('text'=>'Home',  'url'=>'?p=home'),
+  'away'  => array('text'=>'Away',  'url'=>'?p=away'),
+  'about' => array('text'=>'About', 'url'=>'?p=about'),
+);
+<?php
+class CNavigation {
+  public static function GenerateMenu($items) {
+    $html = "<nav>\n";
+    foreach($items as $item) {
+      $html .= "<a href='{$item['url']}'>{$item['text']}</a>\n";
+    }
+    $html .= "</nav>\n";
+    return $html;
+  }
+};
+
+<?php echo CNavigation::GenerateMenu($menu);
+
+referens: http://dbwebb.se/kod-exempel/dynamic_php_menu/
