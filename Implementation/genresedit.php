@@ -17,28 +17,118 @@
     <li><a class="contact" href="Contact.html">ContactForm</a></li>
     <li><a class="Genres" href="genres.php">Genres</a></li>
     </ul>
-	<form action="genresedit.php" method="post"/>
-	GenreName: <input type="text" name="genrename" /><p>
-		  <input type="submit" value="Edit"/>
-	</form>
-	
+<form method="post" action="genresedit.php">
+<select name="genrepick">
+      <option value="1">Power Metal</option>
+      <option value="2">Thrash Metal</option>
+      <option value="3">Test</option>
+</select>
+<input type="submit" name="submit" id="submit" value="Submit the form">
+</form>
 
+<!--//<?php
+  // $option = isset($_POST['genrepick']) ? $_POST['genrepick'] : false;
+   //if($option) {
+     // echo htmlentities($_POST['genrepick'], ENT_QUOTES, "UTF-8");
+   //} else {
+  //   echo "task option is required";
+    // exit; 
+  // }
+// ?>-->
 <?php
-session_start();
+ 
+if(isset($_COOKIE["PHPSESSID"]))
+  {
+    session_start();
+}
 require_once "orm.php";
-//Update query
+    //Select query
     $db = new ORM();
     $genrename = $_POST['genrename'];
-    $genreid = $_POST['genreid'];
+    $db->select(array('genrename'))->from('genres');
+    try {
+	    $result = $db->executeQuery()->getResultArray();
+	    foreach($result as $genrename) {
+	        
+	        if($genrename['genrename'] == "Power Metal")
+	        { 
+	            
+	            //echo $genrename['genrename'];
+	            $_SESSION['Powermetal'] = $genrename['genrename'];
+	            
+	            
+	        }
+	       
+	       
+	       elseif($genrename['genrename'] == "Thrash Metal")
+	       {
+	          
+	           //echo $genrename['genrename'];
+	           $_SESSION['Thrashmetal'] = $genrename['genrename'];
+	            
+	       }
+	       elseif($genrename['genrename'] == "Test")
+	       {
+	           //echo $genrename['genrename'];
+	           $_SESSION['Test'] = $genrename['genrename'];
+	            
+	       }
+	       
+          
+        }
+        } catch(exception $e) {
+	           die($e->getMessage());
+        }
+         
+	?>
+ 
+ <form action="genresedit.php" method="post">
+picked to edit: <input type="text" name="edit" value="<?php
+ if(isset($_COOKIE["PHPSESSID"]))
+  {
+    session_start();
+  }
+require_once "orm.php";
+$db = new ORM();
+$genrename = $_POST['genrename'];
+
+$genrepick = $_POST['genrepick'];
+$genreid = $_POST['genreid'];
+	switch ($_POST['genrepick']) {
+	case "1":
+    $genreid = "1";
+    $genrename =  $_SESSION['Powermetal'];
+    
+		break;
+		case "2":
+
+	$genreid ="2";
+	$genrename = $_SESSION['Thrashmetal'];
+	
+		break;
+		case "3":
+   
+   $genreid = "3";
+   $genrename = $_SESSION['Test'];
+   
+		break;
+	}
+
 
 $db->update(array('genrename' => $genrename))->setTableName('genres')->where('genreid = '.$genreid);
 
 try {
 	$db->executeQuery();
-	var_dump($genreid);
+	echo $genrename;
 } catch(exception $e) {
 	die($e->getMessage());
-}
-?>
+}	
+        
+	?>"><br>
+<input type="submit" name="edit" value="Edit">
+</form>
+
+
+ 
 </body>
 </html>
