@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="sv">
+   <head>
+       <meta http-equiv="content-type" content="text/html" charset="ISO-8859-1" initial-scale=1.0 maximum-scale=1.0 user-scalable=0 />
+        <title>Contactform</title>
+       <link rel="stylesheet" type="text/css" href="Css/bootstrap.css" media="screen and (min-width:481px)" />
+        <link rel="stylesheet" type="text/css" href="Css/bootstrap.css" media="screen and (max-width:481px)" />
+       <link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="print" />
+        <link rel="shortcut icon" href="css/pics/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="css/pics/apple-touch-icon-114x114-precomposed.png" />
+    </head>
+<body>
+<Header id="header">
+    <img id="headerbild"  src="Pics/header_projekt.png" alt="pic_projekt" title="Picture Projekt" />
+    <Nav id="navigation"><h1>Menu</h1>
+    <ul>
+    <li></li> <a class="start" href="index.php">Start</a></li>
+    <li class="active"><a class="contact" href="Contact.html">ContactForm</a></li>
+    <li><a class="Genres" href="genres.php">Genres</a></li>
+    </ul> </Nav>
+    </Header><br>
+<!-- Begin myContactForm.com Form HTML -->
+<form name="contactForm" id="contactForm" method="post"  action="http://www.mycontactform.com/sendform/sendform.php">
+<table summary="This table contains contact form fields." width="100%" cellpadding="0" cellspacing="0">
+ <tr id="trstyle">
+  <td id="tdstyle">
+  <label for="subject" style="float: left; width: 30%; padding-top: 4px; font-family: Arial; color: #000000; font-size: 14px;">Subject: <span style="color: #FF0000">*</span></label>
+  <input name="subject" type="text" id="subject" size="20" maxlength="100" style="font-family: Arial; font-size: 14px; color: #000000; background-color: #FFFFFF; border: 1px solid #000000; padding: 2px;" required="required" />
+  </td>
+ </tr>
+ <tr id="trstyle">
+  <td id="tdstyle">
+  <label for="email" style="float: left; width: 30%; padding-top: 4px; font-family: Arial; color: #000000; font-size: 14px;">E-mail Address: <span style="color: #FF0000">*</span></label>
+  <input name="email" type="email" id="email" size="20" maxlength="100" required="required" style="font-family: Arial; font-size: 14px; color: #000000; background-color: #FFFFFF; border: 1px solid #000000; padding: 2px;" />
+  </td>
+ </tr>
+ <tr id="trstyle">
+  <td id="tdstyle">
+  <label for="q1" style="float: left; width: 30%; padding-top: 4px; font-family: Arial; color: #000000; font-size: 14px;">Your name: <span style="color: #FF0000">*</span></label> <input name="q1" id="q1" type="text" value="Enter your name here" size="20" maxlength="40" style="font-family: Arial; font-size: 14px; color: #000000; background-color: #FFFFFF; border: 1px solid #000000; padding: 2px;" required="required"/>
+  </td>
+ </tr>
+ <tr id="trstyle">
+  <td id="tdstyle">
+  <label for="q3" style="float: left; width: 30%; padding-top: 4px; font-family: Arial; color: #000000; font-size: 14px;">Your Question: <span style="color: #FF0000">*</span></label> <textarea name="q3" id="q3" cols="20" rows="20" style="font-family: Arial; font-size: 14px; color: #000000; background-color: #FFFFFF; border: 1px solid #000000; padding: 2px;" required="required">Enter your question here.</textarea>
+  </td>
+ </tr>
+<tr id="trstyle">
+  <td id="tdstyle">
+<hr style="color: #D8D8D8; background-color: #D8D8D8; height: 1px;" />
+ </td>
+ </tr>
+<tr id="trstyle">
+  <td id="tdstyle">
+   <input name="user" type="hidden" id="user" value="krochen" />
+   <input name="formid" type="hidden" id="formid" value="414464" />
+   <input name="submit" type="submit" value="Submit" style="font-family: ; font-size: ; color: ; background-color:black; border:  solid ; padding: 2px;" />
+   <input name="reset" type="reset" value="Reset" style="font-family: ; font-size: ; color: ; background-color:black; border:  solid ; padding: 2px;" />
+   <input type="button" value="Print" onClick="window.print()" style="font-family: ; font-size: ; color: ; background-color:black; border:  solid ; padding: 2px;" />
+ </td>
+ </tr>
+<tr style="margin: 0; padding: 0;">
+  <td style="background-color: #bac4cc; padding: 5px; clear: left; margin: 0;">
+<span style="color: #FF0000">*</span> <span style="font-family: Arial; color: #000000; font-size: 14px;">Required</span> <span style="float: right; font-family: Arial; color: #000000; font-size: 14px;"><a href="http://www.mycontactform.com" target="_blank" title="Link to myContactForm.com">Free Contact Form</a></span> </td>
+ </tr>
+</table>
+</form>
+<!-- End myContactForm.com Form HTML -->
+</html>	
